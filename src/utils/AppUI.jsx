@@ -6,8 +6,10 @@ import { TodoList } from "../components/TodoList";
 import { TodoSearch } from "../components/TodoSearch";
 import { TodoForm } from '../components/TodoForm';
 import { Modal } from '../components/Modal';
+import { TodosError } from '../components/TodosError';
+import { TodosLoading } from '../components/TodosLoading';
+import { EmptyTodos } from '../components/EmptyTodos';
 import { TodoContext } from '../context';
-
 
 export const AppUI = () => {
 
@@ -18,18 +20,23 @@ export const AppUI = () => {
     loading, 
     searchedTodos, 
     toggleTodos, 
-    deleteTodos
+    deleteTodos,
+    totalTodos,
+    completedTodos,
   } = useContext(TodoContext);
 
   return (
     <>
-      <TodoCounter />
+      <TodoCounter 
+        total={ totalTodos }
+        completed={ completedTodos }
+      />
       <TodoSearch />
 
       <TodoList>
-        {loading && <p>Loading page</p>}
-        {error && <p>Error page :(</p>}
-        {(!loading && !searchedTodos.length) && <p>Create your first todo</p> }
+        {loading && <TodosLoading />}
+        {error && <TodosError error={error}/>}
+        {(!loading && !searchedTodos.length) && <EmptyTodos /> }
 
 
         {searchedTodos.map(todo => (
