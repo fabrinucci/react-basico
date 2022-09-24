@@ -1,6 +1,6 @@
 
 export function EmptyTodos() {
   return (
-    <p>No hay ningun todo</p>
+    <p>Crea tu primer todo</p>
   )
 }

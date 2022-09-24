@@ -1,12 +1,10 @@
-import { useContext, useState } from 'react';
-import { TodoContext } from '../../context';
+import { useState } from 'react';
+import { useTodos } from '../../hooks/useTodos';
 import './TodoForm.css'
 
-export function TodoForm() {
+export function TodoForm({ addTodos, setToggleModal }) {
 
   const [newTodoValue, setNewTodoValue] = useState('')
-
-  const { addTodos, setToggleModal } = useContext(TodoContext);
   
   const onCancel = () => {
     setToggleModal(false);
@@ -20,7 +18,6 @@ export function TodoForm() {
     event.preventDefault();
     (newTodoValue.length >= 1) && addTodos(newTodoValue);
     (newTodoValue.length >= 1) && setToggleModal(false);
-    
   }
 
   return (

@@ -1,6 +1,6 @@
 import './CreateTodoButton.css';
 
-export function CreateTodoButton({ toggleModal, setToggleModal}) {
+export function CreateTodoButton({ setToggleModal }) {
 
   const handleClick = () => {
     setToggleModal(prevState => !prevState)

@@ -1,10 +1,6 @@
-import { useContext } from 'react';
-import { TodoContext } from '../../context';
 import './TodoSearch.css';
 
-export function TodoSearch() {
-
-  const {inputSearch, setInputSearch} = useContext(TodoContext);
+export function TodoSearch({ inputSearch, setInputSearch, loading }) {
 
   const handleInputChange = (event) => {
     setInputSearch(event.target.value);
@@ -13,9 +9,10 @@ export function TodoSearch() {
     <>
       <input 
         className="TodoSearch" 
-        placeholder="Cebolla"
+        placeholder="Hacer Ejercicio"
         onChange={handleInputChange}
         value= {inputSearch}
+        disabled={loading}
       />
     </>
   );
