@@ -11,7 +11,7 @@ import { TodosError } from './components/TodoList/TodosError';
 import { TodosLoading } from './components/TodoList/TodosLoading';
 import { EmptyTodos } from './components/TodoList/EmptyTodos';
 import { EmptySearchTodos } from './components/TodoList/EmptySearchTodos';
-import { ChangeAlertStorageListener } from './components/ChangeAlert';
+import { ChangeAlert } from './components/ChangeAlert';
 
 function App() {
 
@@ -90,7 +90,7 @@ function App() {
         setToggleModal={ setToggleModal }
       />
 
-      <ChangeAlertStorageListener 
+      <ChangeAlert 
         synchronize={synchronizeTodos}
       />
     </>
