@@ -11,6 +11,7 @@ import { TodosError } from './components/TodoList/TodosError';
 import { TodosLoading } from './components/TodoList/TodosLoading';
 import { EmptyTodos } from './components/TodoList/EmptyTodos';
 import { EmptySearchTodos } from './components/TodoList/EmptySearchTodos';
+import { ChangeAlertStorageListener } from './components/ChangeAlert';
 
 function App() {
 
@@ -26,7 +27,8 @@ function App() {
     completedTodos,
     inputSearch, 
     setInputSearch,
-    addTodos
+    addTodos,
+    synchronizeTodos
   } = useTodos();
 
   return (
@@ -84,9 +86,12 @@ function App() {
         </Modal>
       )}
         
-
       <CreateTodoButton 
         setToggleModal={ setToggleModal }
+      />
+
+      <ChangeAlertStorageListener 
+        synchronize={synchronizeTodos}
       />
     </>
   );

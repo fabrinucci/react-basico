@@ -11,7 +11,7 @@ export function TodoList(props) {
       {(!props.loading && !props.totalTodos) && props.onEmptyTodos()}
       {(props.totalTodos && !props.searchedTodos.length) && props.onEmptySearchTodos(props.searchText)}
 
-      { props.searchedTodos.map(renderFunction)}
+      { (!props.loading && !props.error) && props.searchedTodos.map(renderFunction)}
 
     </section>
   );

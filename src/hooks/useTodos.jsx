@@ -4,7 +4,8 @@ import { useLocalStorage } from "./useLocalStorage";
 function useTodos() {
   const {
     item: todos, 
-    saveItem: saveTodos, 
+    saveItem: saveTodos,
+    synchronizeItem: synchronizeTodos,
     loading,
     error
   } = useLocalStorage('Todos_V1', []);
@@ -60,7 +61,8 @@ function useTodos() {
     addTodos,
     deleteTodos,
     toggleModal,
-    setToggleModal
+    setToggleModal,
+    synchronizeTodos
   }
 }
 
